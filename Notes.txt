@@ -1,0 +1,96 @@
+1. Js don't have any symbol for infinty so its use Infinity keyword 
+    - and as a special keywords for +vve and -ve infinty-Provided by Number library
+2. In toString() - method covert variable to string if we didn't pass any argument 
+                like - a.toString();
+                -use a.toString(2) -binary ,8-octa,16-hexa ..soon
+                typerof a -used to check data Type
+3.  toFixed() - method used to truncate digits after decimals 
+            like a.toFixed(0)-it shows 0 digits after decimals 
+                a.toFixed(2).
+                -this method first perform rounding opertaion for specified number of digits after decimal.
+                 then it will converts to string.
+4. toPreciscion() - it is similar to fiexed it adds digits before and after decimals.
+        -   it won't add extra 0 automatically
+
+5.Type Coercion - jS consit this TC and it will check for the value of object and compare with string
+6. === - it will kind of strict conversion it won't check for type conversion .
+        -it written true. only both value's and type are matched.
+7. Slice().
+    replace() - this function won't do inplace replace .It will do in copy of string 
+            -ex: line .replace("Sri Hari","Sri HVG");
+                line .replace(/Sri Hari/i,"Sri HVG");- replace function is basically case sensitive if we pass  
+                                                        miss matcheed so no replace will occur thats why we are 
+                                                        passing "i" and literal is like pattern.
+                 line .replace("Sri Hari","Sri HVG");- it will replace in first occurnce of the string so 
+                                                        to overcome this we need to pass "g"- globally replace.
+                line .replace(/Sri Hari/g,"Sri HVG");
+
+8.Math.round() - this function round to the nearest integer like, round(5.25)=5, 5.5= 6 soon 
+9.Math.abs() - this take both -ve and +ve and generate absolute value of it like abs(-4) = 4
+10.Math.floor() -it will generate less value like ,floor(2.8) = 2 
+11.Math.ceil() -it will generate greater value like ,ceil(2.2) = 3 
+
+************************Functions****************************************
+1.functions are executed as soon as html page is loaded we need to use special global windows object
+        - i.e  windows.load = function();
+2 Func in js is considered as first class memebers -it means we can assign Func to variables or properties 
+
+3. if you didn't declare variable .its scope became global like if you define inside the Func
+     still you can access it form outside - undefinedVariable = "fsdsdfsd";
+4.Strict mode restrict from global declare.
+5.redeclration using let keyword is not permitted but they clearly applies when redeclration happens only in same scope.
+6.Variable declared using let-keyword the scope of the variable is block i.e where it is defined 
+7.When the number of arguments are not fiexed in function call  i.e we can pass any number of parameters using (...)spread operator
+    -function add(...num){} -RestParameter syntax 
+8. Shallow copy means 2 different pointer's pointing to same data like there is no duplication
+    -as well as there is no memory waste
+9.Independent(deep)copy-it is done by using slice function - here new Independent array is created 
+    -and 2 pointers not pointing to same data -Memory wastage 
+10 .push() -add elemnt to end of array and unshift() - used to start of array. shift()-remove elemnt from start.
+11.splice();- it take arguments like index , no% arguments and input -it is inplace modification i,e 
+            -same array is modified .
+12.slice() -pice of array --when we assigning upper and lowerbond.The Upperbond is not included in the array.
+            -it supports negative indexing also.
+13.sort()-reverse()-both alter main array means in place modification -it is by default alphabetical sort.
+    -when u perform sorting for numbers it will conisder first element like- 10,20,3,40 
+    -we can create copy of the array using slice() and spread parameter .
+
+
+    **********************************Objects*****************************************
+1.object = key+value pairs- this refers to the current object-this points to the window object .
+2.when u define function inside object it will this points to the project itself.
+3.call() -defines what exactly this refers to within the scope of the function call.    
+4.purpose of object constructor is we can reuse that function in oreder to initialize multiple objects  .
+5.Object.assign({target_Object},source_Object) -object.assign copy(deep/Independent copy) the properties of sourece to target 
+                                                - and returns the target
+6.using the spread opertor to copy object it won't do deepcopy  completely
+            -ex:var ch ={...oldch};
+IMP:: both assign and spread method for creating a copy of a object are not completely Independent
+        -i.e where all of the fields defined at the top-level are indeed different copies.However in the case 
+            of nested objects in fact they are reference to the same underlying data.
+7.To make completely deep copying object including nested object we need to use JSON.Stringfy() method.
+    -it converts object to string and JSon.parse() is required to pasre from string to object
+    but JSON.stringfy() won't work for the object having function as a attribute value bcoz functions are not 
+        -recognized by the JSON format and those will be lost if you Json.stringfy an object .
+8.object.create()-it is also do shallow copy.lie top-level attributes won't change.
+9.In js objects defenations are key and value pairs.object.keys(), Object.value(),Object.entries().
+10.object.freeze()- here the object is frozen it wont allow us to modifiy the top level attribute
+                    -but frozen object didn't restrict to changes in nested object.  
+11.object.seal() - here object is sealed and it won't let to make changes in top level objects (only if strict mode is on).
+12.map() - it takes the array objects and map each element to the new array  ;
+        - it takes the argument as function like, let abc=items.map(function(item){
+                                                                    return item.price;
+                                                                    });
+                                                       or  let abc=item.map(item=>item.price);
+13.JS provided functon for aggregate the  array element e. reduce() -method 
+    -let abc = items,reduce((sum, item)=> sum+item.price,0)
+        here- sum is acumulator-it is logic and it will increment for iteration and 0-is initial value of sum
+14.filter() - it will create the new array based on sum conditions i,e filter(item =>item.price>=25);
+15.prortotyping and inheritance have similarity  -if we want to use inheritance future in Js we shuld create 
+                                                  -prortotype use Object.create() -check in screenshot no-29
+super-reference to the constructor of super class
+
+
+    **********************************Functions*****************************************
+1.func is able to accept both primitive type and object type
+2.arrow func inherit the scope from parent and they don't have there own scope.
